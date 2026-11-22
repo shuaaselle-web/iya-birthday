@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8e9b0">
+  <title>For Iya, with love ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --butter: #f5e5a9;
+      --cream: #fffdf2;
+      --red: #762126;
+      --wine: #53151b;
+      --honey: #e7c66f;
+      --rose: #d9a6a0;
+      --ink: #641b20;
+      --shadow: rgba(91, 43, 29, .15);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background-color: var(--butter);
+      font-family: "DM Sans", sans-serif; overflow-x: hidden;
+      background-image: repeating-linear-gradient(0deg, transparent 0 28px, rgba(104,139,174,.18) 28px 34px, transparent 34px 56px), repeating-linear-gradient(90deg, transparent 0 28px, rgba(104,139,174,.18) 28px 34px, transparent 34px 56px), repeating-linear-gradient(45deg, rgba(255,255,255,.20) 0 3px, transparent 3px 8px);
+      background-size: 112px 112px, 112px 112px, 18px 18px;
+    }
+    button { font: inherit; cursor: pointer; }
+    .grain { position: fixed; inset: 0; pointer-events: none; z-index: 20; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E"); }
+    .page { width: min(100% - 34px, 980px); margin: auto; }
+    .hero { min-height: 100svh; display: grid; place-items: center; padding: 48px 0; text-align: center; position: relative; }
+    .hero-card { width: min(100%, 680px); padding: clamp(28px, 7vw, 66px); background: rgba(255,253,242,.94); border: 1px solid rgba(104,139,174,.35); box-shadow: 0 18px 55px var(--shadow); position: relative; outline: 8px solid rgba(255,253,242,.65); }
+    .hero-card:before, .hero-card:after { content: "✿"; position: absolute; color: var(--rose); font-size: 26px; }
+    .hero-card:before { top: 15px; left: 18px; } .hero-card:after { bottom: 15px; right: 18px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: 10px; }
+    h1, h2, h3, .script { font-family: "Cormorant Garamond", serif; font-weight: 500; }
+    h1 { font-size: clamp(48px, 10vw, 82px); line-height: .95; margin: 20px 0 14px; color: var(--red); }
+    .intro { font: 500 clamp(23px, 4vw, 31px)/1.2 "Caveat", cursive; max-width: 470px; margin: 0 auto 28px; }
+    .tiny { font-size: 11px; letter-spacing: .14em; }
+    .primary, .music-btn, .back-btn {
+      border: 0; background: var(--red); color: var(--cream); padding: 13px 22px;
+      letter-spacing: .1em; text-transform: uppercase; font-size: 10px;
+      transition: transform .2s, background .2s; box-shadow: 0 5px 0 var(--wine);
+    }
+    .primary:hover, .music-btn:hover, .back-btn:hover { transform: translateY(-2px); background: var(--wine); }
+    .hero-flower { position: absolute; color: var(--red); opacity: .45; font-size: 34px; }
+    .f1 { top: 12%; left: 8%; transform: rotate(-18deg); } .f2 { right: 9%; bottom: 15%; font-size: 25px; }
+    .envelope-wrap { display: none; min-height: 100svh; place-items: center; padding: 50px 0; text-align: center; }
+    .envelope-wrap.show { display: grid; }
+    .envelope-area { width: min(100%, 570px); }
+    .envelope { position: relative; width: min(84vw, 430px); height: 270px; margin: 30px auto 22px; perspective: 1000px; cursor: pointer; }
+    .env-back { position: absolute; inset: 0; background: #e8d38f; border: 1px solid #c9ae68; }
+    .letter-peek { position: absolute; left: 8%; width: 84%; height: 88%; bottom: 5%; background: #fffaf0; padding: 25px 18px; transition: transform 1s .2s; box-shadow: 0 2px 9px var(--shadow); }
+    .letter-peek span { font: 26px "Caveat", cursive; }
+    .env-front { position: absolute; inset: 0; background: #f0dfaa; clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%); z-index: 3; }
+    .env-flap { position: absolute; inset: 0; background: #d9c17c; clip-path: polygon(0 0, 100% 0, 50% 58%); transform-origin: top; transition: transform .9s ease; z-index: 4; }
+    .seal { position: absolute; z-index: 5; left: 50%; top: 58%; transform: translate(-50%,-50%); width: 48px; height: 48px; border-radius: 50%; background: var(--red); color: var(--cream); display: grid; place-items: center; font-size: 22px; box-shadow: 0 2px 7px var(--shadow); transition: opacity .3s; }
+    .envelope.open .env-flap { transform: rotateX(180deg); z-index: 1; }
+    .envelope.open .letter-peek { transform: translateY(-125px); }
+    .envelope.open .seal { opacity: 0; }
+    .letter-section { display: none; padding: 70px 0 90px; }
+    .letter-section.show { display: block; animation: fadeUp .8s both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    .paper { background: var(--cream); max-width: 740px; margin: auto; padding: clamp(28px, 7vw, 68px); box-shadow: 0 18px 50px var(--shadow); border: 1px solid rgba(165,46,50,.18); position: relative; }
+    .paper:before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(165,46,50,.18); pointer-events: none; }
+    .paper-inner { position: relative; z-index: 1; }
+    .paper h2 { font-size: clamp(38px, 7vw, 58px); margin: 8px 0 24px; color: var(--red); }
+    .letter-copy { font: 19px/1.75 "Cormorant Garamond", serif; white-space: pre-line; }
+    .signoff { font: 29px "Caveat", cursive; margin-top: 28px; }
+    .section { padding: 75px 0; }
+    .section-head { text-align: center; margin-bottom: 30px; }
+    .section-head h2 { font-size: clamp(38px, 7vw, 54px); margin: 8px 0; color: var(--red); }
+    .section-head p { font: 23px "Caveat", cursive; margin: 0; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    .photo-card { background: var(--cream); padding: 12px 12px 34px; box-shadow: 0 9px 22px var(--shadow); transform: rotate(var(--tilt)); transition: transform .25s; border: 1px solid rgba(104,139,174,.24); position: relative; }
+    .photo-card:before { content: ""; position: absolute; inset: -7px; border: 2px dashed rgba(104,139,174,.42); pointer-events: none; }
+    .photo-card:hover { transform: rotate(0) translateY(-5px); }
+    .photo-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; background: #f1d98e; }
+    .photo-card figcaption { font: 21px "Caveat", cursive; text-align: center; padding-top: 8px; }
+    .photo-note { font-size: 12px; text-align: center; margin: 18px auto 0; opacity: .8; }
+    .secret-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+    .secret {
+      min-height: 150px; background: #f4dfa0; border: 1px dashed rgba(165,46,50,.55);
+      color: var(--red); padding: 18px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      transition: background .2s, transform .2s;
+    }
+    .secret:hover { background: #fff0c8; transform: translateY(-3px); }
+    .secret .front { font: 23px "Caveat", cursive; }
+    .secret .inside { display: none; font: 19px/1.35 "Cormorant Garamond", serif; }
+    .secret.revealed .front { display: none; } .secret.revealed .inside { display: block; }
+    .footer { text-align: center; padding: 50px 0 70px; font: 23px "Caveat", cursive; }
+    .footer .heart { font-size: 28px; }
+    .music-control { position: fixed; right: 16px; bottom: 16px; z-index: 30; }
+    .music-btn { padding: 12px 15px; box-shadow: 0 4px 0 var(--wine); }
+    .music-btn span { margin-right: 6px; }
+    .hidden { display: none !important; }
+    @media (max-width: 650px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); gap: 18px 13px; }
+      .secret-grid { grid-template-columns: 1fr; }
+      .secret { min-height: 105px; }
+      .envelope { height: 220px; }
+      .letter-copy { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <main>
+    <section class="hero page" id="welcome">
+      <span class="hero-flower f1">✿</span><span class="hero-flower f2">♡</span>
+      <div class="hero-card">
+        <div class="eyebrow">A little birthday surprise · 2026</div>
+        <h1>Hi, Iya.</h1>
+        <p class="intro">A little something for your birthday from your one and only Ate :)))</p>
+        <p class="tiny">MADE WITH LOVE, JUST FOR YOU</p>
+        <button class="primary" id="startBtn">Open your letter&nbsp; ♡</button>
+      </div>
+    </section>
+
+    <section class="envelope-wrap page" id="envelopeStage">
+      <div class="envelope-area">
+        <div class="eyebrow">A letter, sealed with love</div>
+        <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the envelope">
+          <div class="env-back"></div>
+          <div class="letter-peek"><span>For Iya, with love ♡</span></div>
+          <div class="env-front"></div><div class="env-flap"></div>
+          <div class="seal">♡</div>
+        </div>
+        <p class="script">Tap the envelope to open it.</p>
+        <button class="back-btn" id="readBtn">Read my letter</button>
+      </div>
+    </section>
+
+    <section class="letter-section page" id="letterSection">
+      <article class="paper">
+        <div class="paper-inner">
+          <div class="eyebrow">November 22, 2026 · A letter for your 19th</div>
+          <h2>Dear Iya,</h2>
+          <div class="letter-copy" id="letterCopy">Happy 19th birthday, Iya!
+
+I hope that as you grow older, you never find yourself apologizing for being human. For feeling too much, overthinking the little things, or having days when everything just feels a little heavier than usual. I hope you never feel like you have to downplay what you're going through just because someone else might have it worse. Your feelings don't need to be measured against anyone else's struggles to be worth acknowledging.
+
+I hope you never think twice about ranting to me, no matter how big or small the things bothering you may seem. Kahit paulit-ulit pa 'yan, kahit feeling mo mababaw lang, or kahit hindi mo rin maintindihan kung bakit ka nalulungkot in the first place. You never have to make sense of everything before telling me about it. You don't have to rehearse your thoughts, find the right words, or wait until things become unbearable before you let them out. Sometimes, you just need someone to listen, and I hope you never feel guilty for needing that. I would much rather hear about the things weighing on your mind than have you convince yourself that you have to figure everything out alone.
+
+I hope you also learn to be as patient with yourself as you are with the people you love. There will be days when you'll make decisions you aren't entirely sure of, when you'll feel lost, or when you'll look at everyone else and wonder if you're falling behind. But please remember that life isn't a race, and there's no one timeline you have to follow. You are allowed to take your time. You're allowed to change your mind, make mistakes, start over, and become someone you never expected to be. You don't have to have everything figured out at 19, or even at 29. There's no deadline for becoming yourself.
+
+As you enter another year of your life, I hope you never lose the little things that make you who you are. I hope you keep finding things that excite you, people who make you feel understood, and places where you can be completely yourself. I hope you experience the kind of happiness that makes even ordinary days feel special. And when things don't go as planned, I hope you remember that one difficult chapter doesn't mean the rest of your story will be any less beautiful.
+
+And as your ate, I hope you know that you don't always have to come to me with good news or exciting stories. You can tell me about the things that upset you, the things you're embarrassed about, the things you're afraid to admit, or even the most random things that happened during your day. You don't have to worry about being too much, too emotional, or too repetitive. I may not always have the right advice, but I'll always be willing to listen.
+
+Maligayang kaarawan, Iya! Sana hindi mo madaliin ang sarili mo sa mga bagay na darating. Marami ka pang mararanasan at matututunan, kaya sana bigyan mo rin ang sarili mo ng pagkakataong magkamali at magsimula ulit. Andito lang ang ate mo, palaging handang makinig sa lahat ng kuwento mo, kahit gaano pa kaliit o kalaki. I hope you always remember that you have someone in your corner, through the good days and the not-so-good ones.
+
+I love you always. ♡</div>
+          <div class="signoff">Your one and only Ate ♡</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section page" id="memories">
+      <div class="section-head">
+        <div class="eyebrow">Little moments, kept close</div>
+        <h2>Our little gallery</h2>
+        <p>A few memories with you ♡</p>
+      </div>
+      <div class="gallery">
+        <figure class="photo-card" style="--tilt:-2deg"><img src="assets/photo-1.jpg" alt="A childhood memory with Iya and family"><figcaption>back when we were little ♡</figcaption></figure>
+        <figure class="photo-card" style="--tilt:2deg"><img src="assets/photo-2.jpg" alt="Iya as a little girl"><figcaption>look at you, little Iya</figcaption></figure>
+        <figure class="photo-card" style="--tilt:-1deg"><img src="assets/photo-3.jpg" alt="A childhood memory of Iya in yellow"><figcaption>sunshine in yellow</figcaption></figure>
+        <figure class="photo-card" style="--tilt:1.5deg"><img src="assets/photo-4.jpg" alt="A childhood selfie together"><figcaption>partners in silliness</figcaption></figure>
+        <figure class="photo-card" style="--tilt:-1.5deg"><img src="assets/photo-5.jpg" alt="Another childhood selfie together"><figcaption>still one of my favorites</figcaption></figure>
+      </div>
+      <p class="photo-note">Ate's note: A little collection of the memories you sent me. Add more anytime by copying a photo-card line and changing its image filename.</p>
+    </section>
+
+    <section class="section page" id="secrets">
+      <div class="section-head">
+        <div class="eyebrow">A few things to keep</div>
+        <h2>Little reminders</h2>
+        <p>Click each note. I left you a few things ♡</p>
+      </div>
+      <div class="secret-grid">
+        <button class="secret"><span class="front">When you need to hear it… ♡</span><span class="inside">You are never too much, and your feelings are never an inconvenience.</span></button>
+        <button class="secret"><span class="front">On a difficult day… ✿</span><span class="inside">You don't have to figure everything out today. Just take the day as it comes.</span></button>
+        <button class="secret"><span class="front">A little promise…</span><span class="inside">You can always rant to me. No apologies, no explanations needed. I'll listen.</span></button>
+      </div>
+    </section>
+
+    <footer class="footer page">
+      <div class="heart">♡</div>
+      <div>Happy 19th, Iya.</div>
+      <div>Always cheering you on,</div>
+      <div>Your one and only Ate :)))</div>
+    </footer>
+  </main>
+
+  <div class="music-control">
+    <button class="music-btn" id="musicBtn" aria-label="Play Never Grow Up"><span>♫</span><span id="musicLabel">Play Never Grow Up</span></button>
+    <audio id="bgMusic" src="assets/music.mp3" loop preload="none"></audio>
+  </div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const welcome = document.getElementById('welcome');
+    const envelopeStage = document.getElementById('envelopeStage');
+    const envelope = document.getElementById('envelope');
+    const letterSection = document.getElementById('letterSection');
+    const readBtn = document.getElementById('readBtn');
+
+    startBtn.addEventListener('click', () => {
+      welcome.classList.add('hidden');
+      envelopeStage.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function openEnvelope() {
+      envelope.classList.add('open');
+      readBtn.textContent = 'Your letter is ready ♡';
+      setTimeout(() => {
+        letterSection.classList.add('show');
+        letterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 850);
+    }
+    envelope.addEventListener('click', openEnvelope);
+    envelope.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnvelope(); }
+    });
+    readBtn.addEventListener('click', () => {
+      if (!envelope.classList.contains('open')) openEnvelope();
+      else { letterSection.classList.add('show'); letterSection.scrollIntoView({ behavior: 'smooth' }); }
+    });
+
+    document.querySelectorAll('.secret').forEach(note => {
+      note.addEventListener('click', () => note.classList.toggle('revealed'));
+    });
+
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const musicLabel = document.getElementById('musicLabel');
+    musicBtn.addEventListener('click', async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicLabel.textContent = 'Pause music';
+          musicBtn.setAttribute('aria-label', 'Pause background music');
+        } catch (err) {
+          musicLabel.textContent = 'Add song file';
+          alert('Add a copy of “Never Grow Up” as assets/music.mp3, then try again.');
+        }
+      } else {
+        music.pause();
+        musicLabel.textContent = 'Play Never Grow Up';
+        musicBtn.setAttribute('aria-label', 'Play Never Grow Up');
+      }
+    });
+  </script>
+</body>
+</html>
