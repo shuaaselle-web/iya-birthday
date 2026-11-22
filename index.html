@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f8e9b0">
   <title>For Iya, with love ♡</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --butter: #f5e5a9;
@@ -19,97 +22,723 @@
       --ink: #641b20;
       --shadow: rgba(91, 43, 29, .15);
     }
+
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
-      margin: 0; color: var(--ink); background-color: var(--butter);
-      font-family: "DM Sans", sans-serif; overflow-x: hidden;
-      background-image: repeating-linear-gradient(0deg, transparent 0 28px, rgba(104,139,174,.18) 28px 34px, transparent 34px 56px), repeating-linear-gradient(90deg, transparent 0 28px, rgba(104,139,174,.18) 28px 34px, transparent 34px 56px), repeating-linear-gradient(45deg, rgba(255,255,255,.20) 0 3px, transparent 3px 8px);
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--butter);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+      background-image:
+        repeating-linear-gradient(0deg, transparent 0 28px, rgba(104,139,174,.18) 28px 34px, transparent 34px 56px),
+        repeating-linear-gradient(90deg, transparent 0 28px, rgba(104,139,174,.18) 28px 34px, transparent 34px 56px),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.20) 0 3px, transparent 3px 8px);
       background-size: 112px 112px, 112px 112px, 18px 18px;
     }
+
     button { font: inherit; cursor: pointer; }
-    .grain { position: fixed; inset: 0; pointer-events: none; z-index: 20; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E"); }
-    .page { width: min(100% - 34px, 980px); margin: auto; }
-    .hero { min-height: 100svh; display: grid; place-items: center; padding: 48px 0; text-align: center; position: relative; }
-    .hero-card { width: min(100%, 680px); padding: clamp(28px, 7vw, 66px); background: rgba(255,253,242,.94); border: 1px solid rgba(104,139,174,.35); box-shadow: 0 18px 55px var(--shadow); position: relative; outline: 8px solid rgba(255,253,242,.65); }
-    .hero-card:before, .hero-card:after { content: "✿"; position: absolute; color: var(--rose); font-size: 26px; }
-    .hero-card:before { top: 15px; left: 18px; } .hero-card:after { bottom: 15px; right: 18px; }
-    .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: 10px; }
-    h1, h2, h3, .script { font-family: "Cormorant Garamond", serif; font-weight: 500; }
-    h1 { font-size: clamp(48px, 10vw, 82px); line-height: .95; margin: 20px 0 14px; color: var(--red); }
-    .intro { font: 500 clamp(23px, 4vw, 31px)/1.2 "Caveat", cursive; max-width: 470px; margin: 0 auto 28px; }
-    .tiny { font-size: 11px; letter-spacing: .14em; }
-    .primary, .music-btn, .back-btn {
-      border: 0; background: var(--red); color: var(--cream); padding: 13px 22px;
-      letter-spacing: .1em; text-transform: uppercase; font-size: 10px;
-      transition: transform .2s, background .2s; box-shadow: 0 5px 0 var(--wine);
+
+    button:focus-visible {
+      outline: 3px solid var(--red);
+      outline-offset: 4px;
     }
-    .primary:hover, .music-btn:hover, .back-btn:hover { transform: translateY(-2px); background: var(--wine); }
-    .hero-flower { position: absolute; color: var(--red); opacity: .45; font-size: 34px; }
-    .f1 { top: 12%; left: 8%; transform: rotate(-18deg); } .f2 { right: 9%; bottom: 15%; font-size: 25px; }
-    .envelope-wrap { display: none; min-height: 100svh; place-items: center; padding: 50px 0; text-align: center; }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 20;
+      opacity: .12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
+    }
+
+    .page {
+      width: min(100% - 34px, 980px);
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 48px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-card {
+      width: min(100%, 680px);
+      padding: clamp(28px, 7vw, 66px);
+      background: rgba(255,253,242,.94);
+      border: 1px solid rgba(104,139,174,.35);
+      box-shadow: 0 18px 55px var(--shadow);
+      position: relative;
+      outline: 8px solid rgba(255,253,242,.65);
+    }
+
+    .hero-card:before, .hero-card:after {
+      content: "✿";
+      position: absolute;
+      color: var(--rose);
+      font-size: 26px;
+    }
+
+    .hero-card:before { top: 15px; left: 18px; }
+    .hero-card:after { bottom: 15px; right: 18px; }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: 10px;
+    }
+
+    h1, h2, h3, .script {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: clamp(48px, 10vw, 82px);
+      line-height: .95;
+      margin: 20px 0 14px;
+      color: var(--red);
+    }
+
+    .intro {
+      font: 500 clamp(23px, 4vw, 31px)/1.2 "Caveat", cursive;
+      max-width: 470px;
+      margin: 0 auto 28px;
+    }
+
+    .tiny {
+      font-size: 11px;
+      letter-spacing: .14em;
+    }
+
+    .primary, .music-btn, .back-btn {
+      border: 0;
+      background: var(--red);
+      color: var(--cream);
+      padding: 13px 22px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-size: 10px;
+      transition: transform .2s, background .2s;
+      box-shadow: 0 5px 0 var(--wine);
+    }
+
+    .primary:hover, .music-btn:hover, .back-btn:hover {
+      transform: translateY(-2px);
+      background: var(--wine);
+    }
+
+    .hero-flower {
+      position: absolute;
+      color: var(--red);
+      opacity: .45;
+      font-size: 34px;
+      animation: gentleFloat 4s ease-in-out infinite;
+    }
+
+    .f1 { top: 12%; left: 8%; transform: rotate(-18deg); }
+    .f2 { right: 9%; bottom: 15%; font-size: 25px; animation-delay: 1s; }
+
+    @keyframes gentleFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -9px; }
+    }
+
+    .envelope-wrap {
+      display: none;
+      min-height: 100svh;
+      place-items: center;
+      padding: 50px 0;
+      text-align: center;
+    }
+
     .envelope-wrap.show { display: grid; }
+
     .envelope-area { width: min(100%, 570px); }
-    .envelope { position: relative; width: min(84vw, 430px); height: 270px; margin: 30px auto 22px; perspective: 1000px; cursor: pointer; }
-    .env-back { position: absolute; inset: 0; background: #e8d38f; border: 1px solid #c9ae68; }
-    .letter-peek { position: absolute; left: 8%; width: 84%; height: 88%; bottom: 5%; background: #fffaf0; padding: 25px 18px; transition: transform 1s .2s; box-shadow: 0 2px 9px var(--shadow); }
+
+    .envelope {
+      position: relative;
+      width: min(84vw, 430px);
+      height: 270px;
+      margin: 30px auto 22px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .env-back {
+      position: absolute;
+      inset: 0;
+      background: #e8d38f;
+      border: 1px solid #c9ae68;
+    }
+
+    .letter-peek {
+      position: absolute;
+      left: 8%;
+      width: 84%;
+      height: 88%;
+      bottom: 5%;
+      background: #fffaf0;
+      padding: 25px 18px;
+      transition: transform 1s .2s;
+      box-shadow: 0 2px 9px var(--shadow);
+    }
+
     .letter-peek span { font: 26px "Caveat", cursive; }
-    .env-front { position: absolute; inset: 0; background: #f0dfaa; clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%); z-index: 3; }
-    .env-flap { position: absolute; inset: 0; background: #d9c17c; clip-path: polygon(0 0, 100% 0, 50% 58%); transform-origin: top; transition: transform .9s ease; z-index: 4; }
-    .seal { position: absolute; z-index: 5; left: 50%; top: 58%; transform: translate(-50%,-50%); width: 48px; height: 48px; border-radius: 50%; background: var(--red); color: var(--cream); display: grid; place-items: center; font-size: 22px; box-shadow: 0 2px 7px var(--shadow); transition: opacity .3s; }
-    .envelope.open .env-flap { transform: rotateX(180deg); z-index: 1; }
+
+    .env-front {
+      position: absolute;
+      inset: 0;
+      background: #f0dfaa;
+      clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
+      z-index: 3;
+    }
+
+    .env-flap {
+      position: absolute;
+      inset: 0;
+      background: #d9c17c;
+      clip-path: polygon(0 0, 100% 0, 50% 58%);
+      transform-origin: top;
+      transition: transform .9s ease;
+      z-index: 4;
+    }
+
+    .seal {
+      position: absolute;
+      z-index: 5;
+      left: 50%;
+      top: 58%;
+      transform: translate(-50%,-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--red);
+      color: var(--cream);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      box-shadow: 0 2px 7px var(--shadow);
+      transition: opacity .3s;
+    }
+
+    .envelope.open .env-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
     .envelope.open .letter-peek { transform: translateY(-125px); }
     .envelope.open .seal { opacity: 0; }
-    .letter-section { display: none; padding: 70px 0 90px; }
-    .letter-section.show { display: block; animation: fadeUp .8s both; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-    .paper { background: var(--cream); max-width: 740px; margin: auto; padding: clamp(28px, 7vw, 68px); box-shadow: 0 18px 50px var(--shadow); border: 1px solid rgba(165,46,50,.18); position: relative; }
-    .paper:before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(165,46,50,.18); pointer-events: none; }
+
+    .letter-section {
+      display: none;
+      padding: 70px 0 90px;
+    }
+
+    .letter-section.show {
+      display: block;
+      animation: fadeUp .8s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .paper {
+      background: var(--cream);
+      max-width: 740px;
+      margin: auto;
+      padding: clamp(28px, 7vw, 68px);
+      box-shadow: 0 18px 50px var(--shadow);
+      border: 1px solid rgba(165,46,50,.18);
+      position: relative;
+    }
+
+    .paper:before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(165,46,50,.18);
+      pointer-events: none;
+    }
+
     .paper-inner { position: relative; z-index: 1; }
-    .paper h2 { font-size: clamp(38px, 7vw, 58px); margin: 8px 0 24px; color: var(--red); }
-    .letter-copy { font: 19px/1.75 "Cormorant Garamond", serif; white-space: pre-line; }
-    .signoff { font: 29px "Caveat", cursive; margin-top: 28px; }
+
+    .paper h2 {
+      font-size: clamp(38px, 7vw, 58px);
+      margin: 8px 0 24px;
+      color: var(--red);
+    }
+
+    .letter-copy {
+      font: 19px/1.75 "Cormorant Garamond", serif;
+      white-space: pre-line;
+    }
+
+    .signoff {
+      font: 29px "Caveat", cursive;
+      margin-top: 28px;
+    }
+
     .section { padding: 75px 0; }
-    .section-head { text-align: center; margin-bottom: 30px; }
-    .section-head h2 { font-size: clamp(38px, 7vw, 54px); margin: 8px 0; color: var(--red); }
-    .section-head p { font: 23px "Caveat", cursive; margin: 0; }
-    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
-    .photo-card { background: var(--cream); padding: 12px 12px 34px; box-shadow: 0 9px 22px var(--shadow); transform: rotate(var(--tilt)); transition: transform .25s; border: 1px solid rgba(104,139,174,.24); position: relative; }
-    .photo-card:before { content: ""; position: absolute; inset: -7px; border: 2px dashed rgba(104,139,174,.42); pointer-events: none; }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(38px, 7vw, 54px);
+      margin: 8px 0;
+      color: var(--red);
+    }
+
+    .section-head p {
+      font: 23px "Caveat", cursive;
+      margin: 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .photo-card {
+      background: var(--cream);
+      padding: 12px 12px 34px;
+      box-shadow: 0 9px 22px var(--shadow);
+      transform: rotate(var(--tilt));
+      transition: transform .25s;
+      border: 1px solid rgba(104,139,174,.24);
+      position: relative;
+    }
+
+    .photo-card:before {
+      content: "";
+      position: absolute;
+      inset: -7px;
+      border: 2px dashed rgba(104,139,174,.42);
+      pointer-events: none;
+    }
+
     .photo-card:hover { transform: rotate(0) translateY(-5px); }
-    .photo-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; background: #f1d98e; }
-    .photo-card figcaption { font: 21px "Caveat", cursive; text-align: center; padding-top: 8px; }
-    .photo-note { font-size: 12px; text-align: center; margin: 18px auto 0; opacity: .8; }
-    .secret-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+      background: #f1d98e;
+    }
+
+    .photo-card figcaption {
+      font: 21px "Caveat", cursive;
+      text-align: center;
+      padding-top: 8px;
+    }
+
+    .photo-note {
+      font-size: 12px;
+      text-align: center;
+      margin: 18px auto 0;
+      opacity: .8;
+    }
+
+    .secret-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+
     .secret {
-      min-height: 150px; background: #f4dfa0; border: 1px dashed rgba(165,46,50,.55);
-      color: var(--red); padding: 18px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      min-height: 150px;
+      background: #f4dfa0;
+      border: 1px dashed rgba(165,46,50,.55);
+      color: var(--red);
+      padding: 18px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       transition: background .2s, transform .2s;
     }
-    .secret:hover { background: #fff0c8; transform: translateY(-3px); }
+
+    .secret:hover {
+      background: #fff0c8;
+      transform: translateY(-3px);
+    }
+
     .secret .front { font: 23px "Caveat", cursive; }
     .secret .inside { display: none; font: 19px/1.35 "Cormorant Garamond", serif; }
-    .secret.revealed .front { display: none; } .secret.revealed .inside { display: block; }
-    .footer { text-align: center; padding: 50px 0 70px; font: 23px "Caveat", cursive; }
-    .footer .heart { font-size: 28px; }
-    .music-control { position: fixed; right: 16px; bottom: 16px; z-index: 30; }
-    .music-btn { padding: 12px 15px; box-shadow: 0 4px 0 var(--wine); }
+    .secret.revealed .front { display: none; }
+    .secret.revealed .inside { display: block; }
+
+    /* THE LITTLE PLAYROOM */
+
+    .playroom {
+      max-width: 740px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panda-area, .fidget-box {
+      background: rgba(255,253,242,.94);
+      border: 1px solid rgba(165,46,50,.2);
+      box-shadow: 0 10px 25px var(--shadow);
+      padding: 28px 18px;
+      text-align: center;
+      min-height: 350px;
+    }
+
+    .panda-instruction, .fidget-description {
+      font: 19px "Caveat", cursive;
+      margin: 0 0 15px;
+    }
+
+    .panda-button {
+      border: 0;
+      background: transparent;
+      width: 190px;
+      height: 185px;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      padding: 0;
+      touch-action: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .panda-shadow {
+      position: absolute;
+      width: 125px;
+      height: 17px;
+      background: rgba(83,21,27,.15);
+      border-radius: 50%;
+      bottom: 4px;
+      left: 32px;
+      transition: all .25s ease;
+    }
+
+    .panda-body {
+      position: absolute;
+      width: 135px;
+      height: 145px;
+      left: 27px;
+      top: 13px;
+      background: #fffdf2;
+      border: 2px solid #e4d8c1;
+      border-radius: 48% 48% 44% 44%;
+      box-shadow: inset -8px -8px 0 rgba(120,80,60,.06), 0 8px 12px rgba(83,21,27,.1);
+      transition: transform .35s cubic-bezier(.2,1.6,.4,1);
+      transform-origin: bottom center;
+    }
+
+    .panda-button.squished .panda-body {
+      transform: scaleX(1.2) scaleY(.72) translateY(20px);
+      transition-duration: .15s;
+    }
+
+    .panda-button.squished .panda-shadow {
+      transform: scaleX(1.25);
+      opacity: .7;
+    }
+
+    .panda-ear {
+      position: absolute;
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background: #29252a;
+      top: -12px;
+      z-index: -1;
+    }
+
+    .ear-left { left: -7px; }
+    .ear-right { right: -7px; }
+
+    .panda-eye {
+      position: absolute;
+      width: 28px;
+      height: 38px;
+      background: #29252a;
+      border-radius: 50%;
+      top: 43px;
+    }
+
+    .eye-left { left: 25px; transform: rotate(25deg); }
+    .eye-right { right: 25px; transform: rotate(-25deg); }
+
+    .panda-eye:after {
+      content: "";
+      position: absolute;
+      background: white;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      top: 7px;
+      left: 7px;
+    }
+
+    .panda-blush {
+      position: absolute;
+      width: 19px;
+      height: 11px;
+      border-radius: 50%;
+      background: #eab3ad;
+      top: 84px;
+      opacity: .8;
+    }
+
+    .blush-left { left: 12px; }
+    .blush-right { right: 12px; }
+
+    .panda-nose {
+      position: absolute;
+      top: 87px;
+      left: 62px;
+      width: 11px;
+      height: 8px;
+      border-radius: 50%;
+      background: #29252a;
+    }
+
+    .panda-mouth {
+      position: absolute;
+      top: 95px;
+      left: 64px;
+      width: 9px;
+      height: 8px;
+      border-bottom: 1.5px solid #29252a;
+      border-radius: 50%;
+    }
+
+    .panda-arm {
+      position: absolute;
+      width: 37px;
+      height: 57px;
+      background: #29252a;
+      border-radius: 50%;
+      top: 76px;
+      z-index: -1;
+    }
+
+    .arm-left { left: -20px; transform: rotate(30deg); }
+    .arm-right { right: -20px; transform: rotate(-30deg); }
+
+    .panda-tummy {
+      position: absolute;
+      width: 62px;
+      height: 43px;
+      border-radius: 50%;
+      background: #f6eee1;
+      bottom: 9px;
+      left: 35px;
+    }
+
+    .panda-caption {
+      font: 22px "Caveat", cursive;
+      margin: 12px 0 3px;
+    }
+
+    .panda-counter, .bubble-count {
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .7;
+    }
+
+    .fidget-title {
+      font: 27px "Caveat", cursive;
+      margin: 0 0 8px;
+    }
+
+    .bubble-wrap {
+      width: 210px;
+      max-width: 100%;
+      margin: 22px auto 14px;
+      padding: 13px;
+      background: #f3dfb0;
+      border: 2px solid #e3c98f;
+      border-radius: 13px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      box-shadow: inset 0 3px 8px rgba(83,21,27,.08);
+    }
+
+    .bubble {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid #e2c38c;
+      background: radial-gradient(circle at 35% 30%, #fffdf2 0 9%, #f5e5bd 35%, #e8cd91 100%);
+      box-shadow: inset 0 -3px 5px rgba(130,85,40,.12), 0 2px 3px rgba(83,21,27,.08);
+      transition: transform .18s, background .18s;
+    }
+
+    .bubble:active { transform: scale(.8); }
+
+    .bubble.popped {
+      transform: scale(.78);
+      background: #e3c98f;
+      box-shadow: inset 0 3px 6px rgba(83,21,27,.14);
+      border-color: #d2b77e;
+    }
+
+    .reset-bubbles {
+      border: 1px solid var(--red);
+      background: transparent;
+      color: var(--red);
+      padding: 8px 13px;
+      font: 17px "Caveat", cursive;
+      transition: background .2s, color .2s;
+    }
+
+    .reset-bubbles:hover {
+      background: var(--red);
+      color: white;
+    }
+
+    /* CLICKABLE FLOATING DECORATIONS */
+
+    .floating-decor {
+      position: fixed;
+      z-index: 10;
+      border: 0;
+      background: transparent;
+      color: var(--red);
+      font-size: 24px;
+      opacity: .7;
+      padding: 8px;
+      animation: decorFloat 4s ease-in-out infinite;
+      transition: transform .2s;
+    }
+
+    .floating-decor:hover {
+      transform: scale(1.4) rotate(15deg);
+    }
+
+    .decor-one { left: 12px; top: 35%; }
+    .decor-two { right: 12px; top: 57%; animation-delay: 1s; }
+    .decor-three { left: 17px; bottom: 18%; animation-delay: 2s; }
+
+    @keyframes decorFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -10px; }
+    }
+
+    .floating-message {
+      position: fixed;
+      z-index: 40;
+      left: 50%;
+      bottom: 85px;
+      transform: translateX(-50%) translateY(15px);
+      background: var(--cream);
+      border: 1px solid var(--rose);
+      box-shadow: 0 8px 25px var(--shadow);
+      padding: 13px 20px;
+      width: max-content;
+      max-width: calc(100% - 40px);
+      text-align: center;
+      font: 21px "Caveat", cursive;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, transform .3s;
+    }
+
+    .floating-message.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 50px 0 70px;
+      font: 23px "Caveat", cursive;
+    }
+
+    .footer .heart {
+      font-size: 28px;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.2); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.12); }
+    }
+
+    .music-control {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 30;
+    }
+
+    .music-btn {
+      padding: 12px 15px;
+      box-shadow: 0 4px 0 var(--wine);
+    }
+
     .music-btn span { margin-right: 6px; }
     .hidden { display: none !important; }
+
     @media (max-width: 650px) {
-      .gallery { grid-template-columns: repeat(2, 1fr); gap: 18px 13px; }
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px 13px;
+      }
+
       .secret-grid { grid-template-columns: 1fr; }
       .secret { min-height: 105px; }
       .envelope { height: 220px; }
       .letter-copy { font-size: 18px; }
+      .playroom { grid-template-columns: 1fr; }
+      .panda-area, .fidget-box { min-height: 320px; }
+      .floating-decor { font-size: 19px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *:before, *:after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="grain"></div>
+
+  <button class="floating-decor decor-one" aria-label="A little heart" data-message="Sending you a little love! ♡">♡</button>
+  <button class="floating-decor decor-two" aria-label="A little flower" data-message="Don't forget to stop and smell the flowers. ✿">✿</button>
+  <button class="floating-decor decor-three" aria-label="A little star" data-message="You are someone's favorite person. ☆">✧</button>
+
+  <div class="floating-message" id="floatingMessage" role="status" aria-live="polite"></div>
+
   <main>
+    <!-- WELCOME -->
     <section class="hero page" id="welcome">
-      <span class="hero-flower f1">✿</span><span class="hero-flower f2">♡</span>
+      <span class="hero-flower f1">✿</span>
+      <span class="hero-flower f2">♡</span>
+
       <div class="hero-card">
         <div class="eyebrow">A little birthday surprise · 2026</div>
         <h1>Hi, Iya.</h1>
@@ -119,25 +748,31 @@
       </div>
     </section>
 
+    <!-- ENVELOPE -->
     <section class="envelope-wrap page" id="envelopeStage">
       <div class="envelope-area">
         <div class="eyebrow">A letter, sealed with love</div>
+
         <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the envelope">
           <div class="env-back"></div>
           <div class="letter-peek"><span>For Iya, with love ♡</span></div>
-          <div class="env-front"></div><div class="env-flap"></div>
+          <div class="env-front"></div>
+          <div class="env-flap"></div>
           <div class="seal">♡</div>
         </div>
+
         <p class="script">Tap the envelope to open it.</p>
         <button class="back-btn" id="readBtn">Read my letter</button>
       </div>
     </section>
 
+    <!-- LETTER -->
     <section class="letter-section page" id="letterSection">
       <article class="paper">
         <div class="paper-inner">
           <div class="eyebrow">November 22, 2026 · A letter for your 19th</div>
           <h2>Dear Iya,</h2>
+
           <div class="letter-copy" id="letterCopy">Happy 19th birthday, Iya!
 
 I hope that as you grow older, you never find yourself apologizing for being human. For feeling too much, overthinking the little things, or having days when everything just feels a little heavier than usual. I hope you never feel like you have to downplay what you're going through just because someone else might have it worse. Your feelings don't need to be measured against anyone else's struggles to be worth acknowledging.
@@ -150,57 +785,160 @@ As you enter another year of your life, I hope you never lose the little things 
 
 And as your ate, I hope you know that you don't always have to come to me with good news or exciting stories. You can tell me about the things that upset you, the things you're embarrassed about, the things you're afraid to admit, or even the most random things that happened during your day. You don't have to worry about being too much, too emotional, or too repetitive. I may not always have the right advice, but I'll always be willing to listen.
 
-Maligayang kaarawan, Iya! Sana hindi mo madaliin ang sarili mo sa mga bagay na darating. Marami ka pang mararanasan at matututunan, kaya sana bigyan mo rin ang sarili mo ng pagkakataong magkamali at magsimula ulit. Andito lang ang ate mo, palaging handang makinig sa lahat ng kuwento mo, kahit gaano pa kaliit o kalaki. I hope you always remember that you have someone in your corner, through the good days and the not-so-good ones.
+Maligayang kaarawan, Iya! Sana hindi mo madaliin ang sarili mo sa mga bagay na darating. Marami ka pang mararanasan at matututunan, kaya sana bigyan mo rin ang sarili mo ng pagkakataong magkamali at magsimula ulit. Andito lang ang ate mo, palaging handang makinig sa lahat ng kuwento mo, kahit gaano pa kaliit o kalaki. I hope you always remember that you have someone in your corner, through the good days and the not-so-good ones.</div>
 
-Mahal ka ni Ate. Palagi. </div>
-          <div class="signoff">Your one and only Ate ♡</div>
+          <div class="signoff">Mahal ka ni Ate. Palagi. ♡</div>
         </div>
       </article>
     </section>
 
+    <!-- PHOTO GALLERY -->
     <section class="section page" id="memories">
       <div class="section-head">
         <div class="eyebrow">Little moments, kept close</div>
         <h2>Our little gallery</h2>
         <p>A few memories with you ♡</p>
       </div>
+
       <div class="gallery">
-        <figure class="photo-card" style="--tilt:-2deg"><img src="assets/photo-1.jpg" alt="A childhood memory with Iya and family"><figcaption>back when we were little ♡</figcaption></figure>
-        <figure class="photo-card" style="--tilt:2deg"><img src="assets/photo-2.jpg" alt="Iya as a little girl"><figcaption>look at you, little Iya</figcaption></figure>
-        <figure class="photo-card" style="--tilt:-1deg"><img src="assets/photo-3.jpg" alt="A childhood memory of Iya in yellow"><figcaption>sunshine in yellow</figcaption></figure>
-        <figure class="photo-card" style="--tilt:1.5deg"><img src="assets/photo-4.jpg" alt="A childhood selfie together"><figcaption>partners in silliness</figcaption></figure>
-        <figure class="photo-card" style="--tilt:-1.5deg"><img src="assets/photo-5.jpg" alt="Another childhood selfie together"><figcaption>still one of my favorites</figcaption></figure>
+        <figure class="photo-card" style="--tilt:-2deg">
+          <img src="assets/photo-1.jpg" alt="A childhood memory with Iya and family">
+          <figcaption>back when we were little ♡</figcaption>
+        </figure>
+
+        <figure class="photo-card" style="--tilt:2deg">
+          <img src="assets/photo-2.jpg" alt="Iya as a little girl">
+          <figcaption>look at you, little Iya</figcaption>
+        </figure>
+
+        <figure class="photo-card" style="--tilt:-1deg">
+          <img src="assets/photo-3.jpg" alt="A childhood memory of Iya in yellow">
+          <figcaption>sunshine in yellow</figcaption>
+        </figure>
+
+        <figure class="photo-card" style="--tilt:1.5deg">
+          <img src="assets/photo-4.jpg" alt="A childhood selfie together">
+          <figcaption>partners in silliness</figcaption>
+        </figure>
+
+        <figure class="photo-card" style="--tilt:-1.5deg">
+          <img src="assets/photo-5.jpg" alt="Another childhood selfie together">
+          <figcaption>still one of my favorites</figcaption>
+        </figure>
       </div>
+
       <p class="photo-note">Ate's note: A little collection of the memories you sent me. Add more anytime by copying a photo-card line and changing its image filename.</p>
     </section>
 
+    <!-- HIDDEN MESSAGES -->
     <section class="section page" id="secrets">
       <div class="section-head">
         <div class="eyebrow">A few things to keep</div>
         <h2>Little reminders</h2>
         <p>Click each note. I left you a few things ♡</p>
       </div>
+
       <div class="secret-grid">
-        <button class="secret"><span class="front">When you need to hear it… ♡</span><span class="inside">You are never too much, and your feelings are never an inconvenience.</span></button>
-        <button class="secret"><span class="front">On a difficult day… ✿</span><span class="inside">You don't have to figure everything out today. Just take the day as it comes.</span></button>
-        <button class="secret"><span class="front">A little promise…</span><span class="inside">You can always rant to me. No apologies, no explanations needed. I'll listen.</span></button>
+        <button class="secret">
+          <span class="front">When you need to hear it… ♡</span>
+          <span class="inside">You are never too much, and your feelings are never an inconvenience.</span>
+        </button>
+
+        <button class="secret">
+          <span class="front">On a difficult day… ✿</span>
+          <span class="inside">You don't have to figure everything out today. Just take the day as it comes.</span>
+        </button>
+
+        <button class="secret">
+          <span class="front">A little promise…</span>
+          <span class="inside">You can always rant to me. No apologies, no explanations needed. I'll listen.</span>
+        </button>
       </div>
     </section>
 
+    <!-- INTERACTIVE PLAYROOM -->
+    <section class="section page" id="playroom">
+      <div class="section-head">
+        <div class="eyebrow">A tiny corner just for you</div>
+        <h2>A little playroom</h2>
+        <p>Take a break and play with these little things ♡</p>
+      </div>
+
+      <div class="playroom">
+        <!-- SQUISHY PANDA -->
+        <div class="panda-area">
+          <p class="panda-instruction">Press and hold the panda to squish it!</p>
+
+          <button class="panda-button" id="panda" aria-label="Squish the panda">
+            <span class="panda-shadow"></span>
+
+            <span class="panda-body">
+              <span class="panda-ear ear-left"></span>
+              <span class="panda-ear ear-right"></span>
+
+              <span class="panda-arm arm-left"></span>
+              <span class="panda-arm arm-right"></span>
+
+              <span class="panda-eye eye-left"></span>
+              <span class="panda-eye eye-right"></span>
+
+              <span class="panda-blush blush-left"></span>
+              <span class="panda-blush blush-right"></span>
+
+              <span class="panda-nose"></span>
+              <span class="panda-mouth"></span>
+              <span class="panda-tummy"></span>
+            </span>
+          </button>
+
+          <p class="panda-caption" id="pandaCaption">hello, Iya! I'm your little panda ♡</p>
+          <span class="panda-counter" id="pandaCounter">Squishes: 0</span>
+        </div>
+
+        <!-- BUBBLE WRAP -->
+        <div class="fidget-box">
+          <p class="fidget-title">A little something to pop</p>
+          <p class="fidget-description">Pop all the bubbles. You can start again whenever you want!</p>
+
+          <div class="bubble-wrap" id="bubbleWrap">
+            <button class="bubble" aria-label="Pop bubble 1" aria-pressed="false"></button>
+            <button class="bubble" aria-label="Pop bubble 2" aria-pressed="false"></button>
+            <button class="bubble" aria-label="Pop bubble 3" aria-pressed="false"></button>
+            <button class="bubble" aria-label="Pop bubble 4" aria-pressed="false"></button>
+            <button class="bubble" aria-label="Pop bubble 5" aria-pressed="false"></button>
+            <button class="bubble" aria-label="Pop bubble 6" aria-pressed="false"></button>
+            <button class="bubble" aria-label="Pop bubble 7" aria-pressed="false"></button>
+            <button class="bubble" aria-label="Pop bubble 8" aria-pressed="false"></button>
+            <button class="bubble" aria-label="Pop bubble 9" aria-pressed="false"></button>
+          </div>
+
+          <p class="bubble-count" id="bubbleCount" aria-live="polite">0 out of 9 popped ♡</p>
+          <button class="reset-bubbles" id="resetBubbles">Reset bubbles ↻</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer page">
       <div class="heart">♡</div>
       <div>Happy 19th, Iya.</div>
       <div>Always cheering you on,</div>
       <div>Your one and only Ate :)))</div>
+      <div style="margin-top:14px;">Mahal ka ni Ate. Palagi. ♡</div>
     </footer>
   </main>
 
+  <!-- MUSIC -->
   <div class="music-control">
-    <button class="music-btn" id="musicBtn" aria-label="Play Never Grow Up"><span>♫</span><span id="musicLabel">Play Never Grow Up</span></button>
+    <button class="music-btn" id="musicBtn" aria-label="Play Never Grow Up">
+      <span>♫</span>
+      <span id="musicLabel">Play Never Grow Up</span>
+    </button>
     <audio id="bgMusic" src="assets/music.mp3" loop preload="none"></audio>
   </div>
 
   <script>
+    // WELCOME AND ENVELOPE
     const startBtn = document.getElementById('startBtn');
     const welcome = document.getElementById('welcome');
     const envelopeStage = document.getElementById('envelopeStage');
@@ -214,37 +952,163 @@ Mahal ka ni Ate. Palagi. </div>
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    let envelopeOpened = false;
+
     function openEnvelope() {
+      if (envelopeOpened) return;
+
+      envelopeOpened = true;
       envelope.classList.add('open');
       readBtn.textContent = 'Your letter is ready ♡';
+
       setTimeout(() => {
         letterSection.classList.add('show');
-        letterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        letterSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }, 850);
     }
+
     envelope.addEventListener('click', openEnvelope);
-    envelope.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnvelope(); }
+
+    envelope.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openEnvelope();
+      }
     });
+
     readBtn.addEventListener('click', () => {
-      if (!envelope.classList.contains('open')) openEnvelope();
-      else { letterSection.classList.add('show'); letterSection.scrollIntoView({ behavior: 'smooth' }); }
+      if (!envelopeOpened) {
+        openEnvelope();
+      } else {
+        letterSection.classList.add('show');
+        letterSection.scrollIntoView({ behavior: 'smooth' });
+      }
     });
 
+    // HIDDEN MESSAGES
     document.querySelectorAll('.secret').forEach(note => {
-      note.addEventListener('click', () => note.classList.toggle('revealed'));
+      note.addEventListener('click', () => {
+        note.classList.toggle('revealed');
+      });
     });
 
+    // SQUISHY PANDA
+    const panda = document.getElementById('panda');
+    const pandaCounter = document.getElementById('pandaCounter');
+    const pandaCaption = document.getElementById('pandaCaption');
+
+    let squishCount = 0;
+    let isSquishing = false;
+
+    const pandaMessages = [
+      "hehe! that tickles ♡",
+      "one more squish, please!",
+      "sending you a tiny hug!",
+      "boing! I'm back!",
+      "you're doing great, Iya ♡",
+      "panda hugs for you!",
+      "squish me again!",
+      "you deserve a little break ♡"
+    ];
+
+    function squishPanda() {
+      if (isSquishing) return;
+
+      isSquishing = true;
+      panda.classList.add('squished');
+
+      squishCount++;
+      pandaCounter.textContent = `Squishes: ${squishCount}`;
+
+      pandaCaption.textContent =
+        pandaMessages[(squishCount - 1) % pandaMessages.length];
+    }
+
+    function releasePanda() {
+      isSquishing = false;
+      panda.classList.remove('squished');
+    }
+
+    panda.addEventListener('pointerdown', event => {
+      event.preventDefault();
+      squishPanda();
+    });
+
+    panda.addEventListener('pointerup', releasePanda);
+    panda.addEventListener('pointerleave', releasePanda);
+    panda.addEventListener('pointercancel', releasePanda);
+
+    window.addEventListener('pointerup', releasePanda);
+
+    // BUBBLE WRAP
+    const bubbles = document.querySelectorAll('.bubble');
+    const bubbleCount = document.getElementById('bubbleCount');
+    const resetBubbles = document.getElementById('resetBubbles');
+
+    let poppedCount = 0;
+
+    function updateBubbleCount() {
+      if (poppedCount === 9) {
+        bubbleCount.textContent = "You popped them all! Good job, Iya ♡";
+      } else {
+        bubbleCount.textContent = `${poppedCount} out of 9 popped ♡`;
+      }
+    }
+
+    bubbles.forEach(bubble => {
+      bubble.addEventListener('click', () => {
+        if (bubble.classList.contains('popped')) return;
+
+        bubble.classList.add('popped');
+        bubble.setAttribute('aria-pressed', 'true');
+
+        poppedCount++;
+        updateBubbleCount();
+      });
+    });
+
+    resetBubbles.addEventListener('click', () => {
+      bubbles.forEach(bubble => {
+        bubble.classList.remove('popped');
+        bubble.setAttribute('aria-pressed', 'false');
+      });
+
+      poppedCount = 0;
+      updateBubbleCount();
+    });
+
+    // CLICKABLE DECORATIONS
+    const floatingMessage = document.getElementById('floatingMessage');
+    let messageTimeout;
+
+    document.querySelectorAll('.floating-decor').forEach(decor => {
+      decor.addEventListener('click', () => {
+        floatingMessage.textContent = decor.dataset.message;
+        floatingMessage.classList.add('show');
+
+        clearTimeout(messageTimeout);
+
+        messageTimeout = setTimeout(() => {
+          floatingMessage.classList.remove('show');
+        }, 2600);
+      });
+    });
+
+    // BACKGROUND MUSIC
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicBtn');
     const musicLabel = document.getElementById('musicLabel');
+
     musicBtn.addEventListener('click', async () => {
       if (music.paused) {
         try {
           await music.play();
           musicLabel.textContent = 'Pause music';
           musicBtn.setAttribute('aria-label', 'Pause background music');
-        } catch (err) {
+        } catch (error) {
           musicLabel.textContent = 'Add song file';
           alert('Add a copy of “Never Grow Up” as assets/music.mp3, then try again.');
         }
